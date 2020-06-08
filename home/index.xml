@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes on </title>
+    <link>/home/</link>
+    <description>Recent content in Homes on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>&amp;copy; David Ardia 2019</copyright>
+    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/home/about/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/home/about/</guid>
+      <description>Welcome I am an IVADO professor in the Department of Decision Sciences at HEC Montréal. Trained in quantitative methods for finance, I have a keen interest in asset allocation, risk management, and text-mining. In 2018, the Swiss Risk Association awarded me &amp;ldquo;Swiss risk manager of the year&amp;rdquo;. I am a big fan of open-source coding and co-authored several R packages such as AdMit, bayesGARCH, DEoptim, GAS, MSGARCH, RiskPortfolios, PeerPerformance, and sentometrics.</description>
+    </item>
+    
+  </channel>
+</rss>
