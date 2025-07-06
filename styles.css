@@ -103,3 +103,16 @@ h1, h2, h3, h4, h5, h6 {
 .small-bullet-list li::marker {
   font-size: 0.6em;
 }
+
+a {
+  color: #3498db; /* bleu moyen */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a i {
+  color: #3498db;
+}
