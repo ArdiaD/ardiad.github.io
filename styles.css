@@ -80,8 +80,8 @@
 
 body {
   font-family: system-ui, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.4;
   color: #222;
 }
 
@@ -115,4 +115,9 @@ a:hover {
 
 a i {
   color: #3498db;
+}
+
+#about p,
+#profile p {
+  text-align: justify;
 }
