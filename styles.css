@@ -69,6 +69,13 @@
   color: #2962ff;
 }
 
+.profile-column {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 /* ========== TYPOGRAPHY ========== */
 
 body {
