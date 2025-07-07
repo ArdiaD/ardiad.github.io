@@ -121,3 +121,7 @@ a i {
 #profile p {
   text-align: justify;
 }
+
+.site-footer .powered-by {
+  font-size: 0.7em;
+}
