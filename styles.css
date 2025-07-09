@@ -125,3 +125,8 @@ a i {
 .site-footer .powered-by {
   font-size: 0.7em;
 }
+
+h4 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
