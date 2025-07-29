@@ -60,7 +60,7 @@
 }
 
 #profile .network-icon i {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #2962ff;
   transition: color 0.2s;
 }
@@ -74,6 +74,11 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+.big-icon {
+  font-size: 1.8rem; /* Adjust as needed */
+  margin-top: 8px; /* Adds space above each icon */
 }
 
 /* ========== TYPOGRAPHY ========== */
