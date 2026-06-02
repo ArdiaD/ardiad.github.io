@@ -247,6 +247,23 @@
 
   <section id="students" class="wrap section">
     <h2 class="section-title">Students</h2>
+    <h3 class="sub-title">MSc theses</h3>
+    <ul class="small-bullet-list" id="thesisList">
+      <li><em>Does Unexpected Change in Climate Risk Concerns Affects IV Surfaces Dynamic? A VAR Approach Using UMC Index</em>, Shihao Tong (September 2025)</li>
+      <li><em>Strategies to Monetize the Sentiment Extracted With NLP Techniques From Earnings Call Transcripts</em>, Benjamin Séguin (September 2025)</li>
+      <li><em>Can Top ESG Stocks Outperform the Investment Universe? Evidence From Mean-Variance Efficiency and Spanning Tests</em>, Fatma Ammar (March 2025)</li>
+      <li><em>Examining the Relation Between Stocks' Option-Implied Moments and Climate Change Concerns</em>, Thomas Boyer (October 2024)</li>
+      <li><em>Realized Variance Forecasting in the US Stock Market</em>, Frédéric Rivard (September 2024)</li>
+      <li><em>Impact of Climate Change Concerns on the Volatility of Green and Brown Stocks</em>, Kriti Bhaya (September 2024)</li>
+      <li><em>Weathering the Markets: Exploring the Empirical Relationship Between Climate Change Concerns and Commodity Futures Contracts</em>, Michael Pimentel (March 2024)</li>
+      <li><em>Regime-Switching Correlations with Exogenous Economic Variables</em>, Paul Kelendji (March 2024, co-directed with Geneviève Gauthier)</li>
+      <li><em>Comparaison de modèles factoriels linéaires et non-linéaires pour l'univers des actions du S&amp;P 500</em>, Frédéric Siino (October 2023)</li>
+      <li><em>The Peer Performance Ratios in Cryptocurrency Markets</em>, Abhishek Duggal (August 2023)</li>
+      <li><em>Multi-Asset Approach to Realized Variance Forecasting: Empirical Evidence from the Canadian Dollar</em>, Alexandre Turenne (August 2022)</li>
+      <li><em>Application of Textual Sentiment Scores in Value-at-Risk models</em>, Jaime Casigay (March 2022)</li>
+    </ul>
+    <button type="button" id="toggleTheses" class="show-more-btn" hidden>Show all theses</button>
+    <h3 class="sub-title">Supervised projects</h3>
     <ul class="small-bullet-list" id="studentList">
       <li><em>Développement d'un outil prédictif du risque de défaut sur comptes marginés, Audit Interne, Crédit International Entreprises, Banque Nationale du Canada</em>, Tarak Ben Abda (January 2026)</li>
       <li><em>From Inference to Prediction: Design-Consistent Modeling of PISA 2022 Mathematics in Canada</em>, Xun Lu (December 2025)</li>
@@ -316,7 +333,7 @@
       <li><em>Évaluation de modèles GARCH et de leurs combinaisons pour la prédiction de risque par la Valeur à Risque dans une étude de Simulation</em>, Marie Guignane Tine (January 2021)</li>
       <li><em>L'effet de liquidité dans l'estimation du risque de marché des placements privés</em>, Chloé Morin-Leclerc (September 2020)</li>
     </ul>
-    <button type="button" id="toggleStudents" class="show-more-btn" hidden>Show all students</button>
+    <button type="button" id="toggleStudents" class="show-more-btn" hidden>Show all projects</button>
   </section>
 
   <section id="contact" class="wrap section">
@@ -424,9 +441,12 @@
     render();
   })();
 
-  (function () {
-    var toggle = document.getElementById('toggleStudents');
-    var list = document.getElementById('studentList');
+  [
+    { btn: 'toggleStudents', list: 'studentList', label: 'projects' },
+    { btn: 'toggleTheses', list: 'thesisList', label: 'theses' }
+  ].forEach(function (cfg) {
+    var toggle = document.getElementById(cfg.btn);
+    var list = document.getElementById(cfg.list);
     if (!toggle || !list) return;
     var items = Array.prototype.slice.call(list.children);
     var LIMIT = 5;
@@ -436,7 +456,7 @@
       items.forEach(function (li, i) { li.style.display = (expanded || i < LIMIT) ? '' : 'none'; });
       if (items.length > LIMIT) {
         toggle.hidden = false;
-        toggle.textContent = expanded ? 'Show fewer' : 'Show all students (' + (items.length - LIMIT) + ' more)';
+        toggle.textContent = expanded ? 'Show fewer' : 'Show all ' + cfg.label + ' (' + (items.length - LIMIT) + ' more)';
       } else {
         toggle.hidden = true;
       }
@@ -444,7 +464,7 @@
 
     toggle.addEventListener('click', function () { expanded = !expanded; render(); });
     render();
-  })();
+  });
 </script>
 
 </body>
