@@ -120,7 +120,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   padding: 72px 24px 56px;
   background-image:
     linear-gradient(rgba(255,255,255,0.62), rgba(255,255,255,0.78)),
-    url('./img/background.jpg');
+    url('./img/background.jpg?v=2');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
