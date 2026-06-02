@@ -3,8 +3,8 @@
    =================================================================== */
 
 :root {
-  --accent: #2962ff;
-  --accent-dark: #1c46c2;
+  --accent: #5b86ff;
+  --accent-dark: #2962ff;
   --ink: #1f2733;
   --muted: #5b6675;
   --line: #e6e9ef;
@@ -34,10 +34,10 @@ body {
   padding: 0 24px;
 }
 
-.section { padding: 64px 24px; }
+.section { padding: 36px 24px; }
 
 .band { background: var(--band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.band .wrap { padding-top: 64px; padding-bottom: 64px; }
+.band .wrap { padding-top: 36px; padding-bottom: 36px; }
 
 /* ---- Headings ---- */
 .section-title {
@@ -224,5 +224,5 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   .nav-links a:hover { border-bottom-color: var(--line); }
   .hero-name { font-size: 1.9rem; }
   .hero .portrait { width: 150px; height: 150px; }
-  .section, .band .wrap { padding-top: 48px; padding-bottom: 48px; }
+  .section, .band .wrap { padding-top: 28px; padding-bottom: 28px; }
 }
