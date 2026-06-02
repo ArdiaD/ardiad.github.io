@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="./styles.css?v=9">
+  <link rel="stylesheet" href="./styles.css?v=10">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="./img/icon-192.png">
@@ -135,6 +135,10 @@
 
   <section id="research" class="wrap section">
     <h2 class="section-title">Research</h2>
+    <div class="pub-search">
+      <input type="search" id="pubSearch" placeholder="Search publications by title, journal, year, or co-author…" aria-label="Search publications" autocomplete="off">
+      <p class="pub-search-empty" id="pubSearchEmpty" hidden>No publications match your search.</p>
+    </div>
     <h3 class="sub-title">Publications in FT 50 journals</h3>
           <ul class="small-bullet-list">
             <li><a href="https://doi.org/10.1016/j.jfineco.2024.103916" target="_blank">Efficient estimation of bid-ask spreads from open, high, low, and close prices</a>, <em>Journal of Financial Economics</em> 2024, with Guidotti &amp; Kroencke <a href="https://bidask.eguidotti.com" target="_blank">[Code/Data]</a></li>
@@ -256,6 +260,38 @@
     </p>
   </footer>
 </div>
+
+<script>
+  (function () {
+    var input = document.getElementById('pubSearch');
+    var research = document.getElementById('research');
+    if (!input || !research) return;
+    var empty = document.getElementById('pubSearchEmpty');
+    var items = Array.prototype.slice.call(research.querySelectorAll('.small-bullet-list li'));
+    var headings = Array.prototype.slice.call(research.querySelectorAll('.sub-title'));
+
+    function apply() {
+      var q = input.value.trim().toLowerCase();
+      var visible = 0;
+      items.forEach(function (li) {
+        var match = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
+        li.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      // hide a subsection heading when its list has no visible entries
+      headings.forEach(function (h) {
+        var ul = h.nextElementSibling;
+        var any = ul && Array.prototype.some.call(ul.children, function (li) {
+          return li.style.display !== 'none';
+        });
+        h.style.display = any ? '' : 'none';
+      });
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    input.addEventListener('input', apply);
+  })();
+</script>
 
 </body>
 </html>

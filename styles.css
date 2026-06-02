@@ -119,10 +119,10 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   padding: 48px 24px;
   background-image:
     linear-gradient(to right,
-      rgba(255,255,255,0.93) 0%,
-      rgba(255,255,255,0.88) 44%,
-      rgba(255,255,255,0.55) 72%,
-      rgba(255,255,255,0.38) 100%),
+      rgba(255,255,255,0.75) 0%,
+      rgba(255,255,255,0.58) 45%,
+      rgba(255,255,255,0.28) 75%,
+      rgba(255,255,255,0.12) 100%),
     url('./img/background.jpg?v=2');
   background-size: cover;
   background-position: center;
@@ -151,10 +151,11 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0 0 4px;
+  color: #000;
 }
 .hero-tagline {
   font-size: 1.1rem;
-  color: var(--muted);
+  color: #000;
   margin: 0 0 16px;
 }
 
@@ -169,7 +170,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   margin: 0;
 }
 .social-row a {
-  color: var(--muted);
+  color: #000;
   font-size: 1.7rem;
   line-height: 1;
   transition: color 0.18s, transform 0.18s;
@@ -180,7 +181,31 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ===================================================================
    About / body text
    =================================================================== */
-#about p { margin: 0; }
+#about p { margin: 0; text-align: justify; }
+
+/* ===================================================================
+   Publication search
+   =================================================================== */
+.pub-search { margin: 0 0 18px; }
+#pubSearch {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+#pubSearch::placeholder { color: #9aa3b2; }
+#pubSearch:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(91,134,255,0.18);
+}
+.pub-search-empty { color: var(--muted); margin: 12px 0 0; font-style: italic; }
 
 /* ===================================================================
    Publication & award lists
@@ -241,7 +266,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   .social-row { justify-content: center; }
   .hero {
     background-image:
-      linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)),
+      linear-gradient(rgba(255,255,255,0.74), rgba(255,255,255,0.74)),
       url('./img/background.jpg?v=2');
   }
   .section, .band .wrap { padding-top: 28px; padding-bottom: 28px; }
