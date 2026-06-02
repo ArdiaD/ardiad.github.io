@@ -82,14 +82,13 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   border-bottom: 1px solid var(--line);
 }
 .nav-inner {
-  max-width: 1160px;
+  max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 24px;
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-end;
 }
 .brand {
   font-weight: 700;
@@ -98,7 +97,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   letter-spacing: -0.01em;
 }
 .brand:hover { color: var(--accent); text-decoration: none; }
-.nav-links { display: flex; gap: 20px; white-space: nowrap; }
+.nav-links { display: flex; flex: 1; justify-content: space-between; gap: 20px; white-space: nowrap; }
 .nav-links a {
   color: var(--muted);
   font-size: 0.9rem;
@@ -279,6 +278,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
     position: absolute;
     top: 60px; left: 0; right: 0;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 0;
     background: #fff;
     border-bottom: 1px solid var(--line);
@@ -286,7 +286,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
     overflow: hidden;
     transition: max-height 0.25s ease;
   }
-  .nav-toggle:checked ~ .nav-links { max-height: 320px; }
+  .nav-toggle:checked ~ .nav-links { max-height: 440px; }
   .nav-links a { padding: 14px 24px; border-bottom: 1px solid var(--line); }
   .nav-links a:hover { border-bottom-color: var(--line); }
   .hero-name { font-size: 1.9rem; }
