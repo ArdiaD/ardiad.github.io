@@ -116,7 +116,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
    Hero
    =================================================================== */
 .hero {
-  padding: 48px 24px;
+  padding: 32px 24px;
   background-image:
     linear-gradient(to right,
       rgba(255,255,255,0.75) 0%,
