@@ -12,10 +12,12 @@
   <meta name="theme-color" content="#2962ff">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="./styles.css">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
@@ -88,46 +90,54 @@
 </head>
 <body id="top">
 
-  <section id="about" class="home-section">
-    <div class="container">
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="#top">David Ardia</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="row" itemscope itemtype="https://schema.org/Person">
-        <div class="profile-column">
-          <div id="profile">
+  <main>
 
-            <img class="portrait" src="./img/Dave.jpg" itemprop="image" alt="Avatar">
+  <section class="hero" itemscope itemtype="https://schema.org/Person">
+    <img class="portrait" src="./img/Dave.jpg" itemprop="image" alt="David Ardia">
+    <h1 class="hero-name" itemprop="name">David Ardia</h1>
+    <p class="hero-tagline">Full IVADO Professor · HEC Montréal</p>
+    <ul class="social-row">
+      <li><a itemprop="sameAs" href="mailto:david.ardia@hec.ca" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+      <li><a itemprop="sameAs" href="https://ca.linkedin.com/in/davidardia" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><a itemprop="sameAs" href="https://scholar.google.ca/citations?user=BPNrOUYAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a></li>
+      <li><a itemprop="sameAs" href="https://orcid.org/0000-0003-2823-782X" target="_blank" rel="noopener" aria-label="ORCID"><i class="ai ai-orcid"></i></a></li>
+      <li><a itemprop="sameAs" href="https://github.com/ArdiaD" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a itemprop="sameAs" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=372409" target="_blank" rel="noopener" aria-label="SSRN"><i class="ai ai-ssrn"></i></a></li>
+      <li><a href="https://www.dropbox.com/sh/sulg6zx1qdfgxq6/AABzW2DCaITRxoldjLvJzqGYa?dl=0" target="_blank" rel="noopener" aria-label="CV"><i class="ai ai-cv"></i></a></li>
+    </ul>
+  </section>
 
-            <div class="portrait-title">
-              <h2 itemprop="name">David Ardia</h2>
-            </div>
-
-          </div>
-        </div>
-        <div class="profile-column">
+  <section id="about" class="band">
+    <div class="wrap">
+      <h2 class="section-title">About</h2>
 
           <p>I am a Full <a href="https://ivado.ca/en/" target="_blank">IVADO</a> professor in the <a href="https://www.hec.ca/mqg/index.html" target="_blank">Department of Decision Sciences</a> at <a href="https://www.hec.ca/en/" target="_blank">HEC Montréal</a> and Director of the <a href="https://www.hec.ca/en/programs/masters/master-financial-engineering/index.html" target="_blank">MSc in Financial Engineering</a> program. Trained in quantitative methods for finance, I have a keen interest in AI, machine learning, and natural language processing techniques for asset allocation, risk management, and economic forecasting. Together with my team, I develop tools and methodologies in R and Python and share them with the broader community to foster real-world impact. I also serve as Associate Editor for the <a href="https://www.sciencedirect.com/journal/international-journal-of-forecasting" target="_blank">International Journal of Forecasting</a>, the <a href="https://www.jstatsoft.org/index" target="_blank">Journal of Statistical Software</a>, and the <a href="https://journal.r-project.org/" target="_blank">R Journal</a>. I am a Fellow of the <a href="https://www.institutlouisbachelier.org" target="_blank">Institut Louis Bachelier</a>, an elected member of the <a href="https://www.isi-web.org/" target="_blank">ISI</a>, a regular member or researcher at <a href="https://cirano.qc.ca/en" target="_blank">CIRANO</a>, <a href="https://cireqmontreal.com/en/" target="_blank">CIREQ</a>, <a href="https://www.crmath.ca/en/" target="_blank">CRM</a>, <a href="https://fin-ml.ca/" target="_blank">Fin-ML</a>, <a href="https://www.gerad.ca/en/" target="_blank">GERAD</a>, and <a href="http://quantact.uqam.ca/index_en.php" target="_blank">Quantact</a>, an associate researcher at <a href="https://www.observatoire-ia.ulaval.ca/en/" target="_blank">OBVIA</a> and the <a href="https://institutpenner.ca/" target="_blank">Penner Institute</a>, and an instructor at <a href="https://www.datacamp.com/courses/financial-analytics-in-google-sheets" target="_blank">DataCamp</a>.
-          <br>
-          <a itemprop="sameAs" href="mailto:david.ardia@hec.ca">
-            <i class="fas fa-envelope big-icon"></i>
-          </a>
-          <a itemprop="sameAs" href="https://ca.linkedin.com/in/davidardia" target="_blank" rel="noopener">
-            <i class="fab fa-linkedin big-icon"></i>
-          </a>
-          <a itemprop="sameAs" href="https://scholar.google.ca/citations?user=BPNrOUYAAAAJ&hl=en" target="_blank" rel="noopener">
-            <i class="ai ai-google-scholar big-icon"></i>
-          </a>
-          <a itemprop="sameAs" href="https://www.dropbox.com/sh/sulg6zx1qdfgxq6/AABzW2DCaITRxoldjLvJzqGYa?dl=0" target="_blank" rel="noopener">
-            <i class="ai ai-cv big-icon"></i>
-          </a>
+    </div>
+  </section>
 
-          <h4 id="research">Research</h4>
-          <h5 id="ft-journals">Publications in FT 50 journals</h5>
+  <section id="research" class="wrap section">
+    <h2 class="section-title">Research</h2>
+    <h3 class="sub-title">Publications in FT 50 journals</h3>
           <ul class="small-bullet-list">
             <li><a href="https://doi.org/10.1016/j.jfineco.2024.103916" target="_blank">Efficient estimation of bid-ask spreads from open, high, low, and close prices</a>, <em>Journal of Financial Economics</em> 2024, with Guidotti &amp; Kroencke <a href="https://bidask.eguidotti.com" target="_blank">[Code/Data]</a></li>
             <li><a href="https://doi.org/10.1016/j.jfineco.2024.103805" target="_blank">Is it alpha or beta? Decomposing hedge fund returns when models are misspecified</a>, <em>Journal of Financial Economics</em> 2024, with Barras, Scaillet &amp; Gagligardini <a href="https://github.com/ArdiaD/AlphaBeta" target="_blank">[Code]</a></li>
             <li><a href="https://doi.org/10.1287/mnsc.2022.4636" target="_blank">Climate change concerns and the performance of green versus brown stocks</a>, <em>Management Science</em> 2023, with Bluteau, Boudt &amp; Inghelbrecht <a href="https://sentometrics-research.com/download/mccc" target="_blank">[Data]</a></li>
           </ul><br>
-          <h5 id="other-publications">Other publications</h5>
+    <h3 class="sub-title">Other publications</h3>
           <ul class="small-bullet-list">
             <li><a href="https://doi.org/10.2139/ssrn.5422034" target="_blank">spantest: Mean-variance spanning tests in R</a>, Working paper, with Séguin</li>
             <li><a href="https://doi.org/10.2139/ssrn.5422094" target="_blank">RSDC: Regime-switching correlation models in R</a>, Working paper, with Séguin</li>
@@ -191,10 +201,13 @@
             <li><a href="https://doi.org/10.1111/j.1368-423X.2008.00253.x" target="_blank">Bayesian estimation of a Markov-switching threshold GARCH model with Student-t innovations</a>, <em>Econometrics Journal</em> 2009</li>
             <li><a href="https://doi.org/10.1007/978-3-540-78657-3" target="_blank">Financial Risk Management with Bayesian Estimation of GARCH Models: Theory and Applications</a>, <em>Lecture Notes in Economics and Mathematical Systems</em> 2008, 612, Springer</li>
             <li><a href="https://folia.unifr.ch/unifr/documents/302750" target="_blank">Tests d'arbitrage sur options: Une analyse empirique des cotations de market-makers</a>, <em>Bankers, Markets and Investors</em> 2007</li>
-          </ul><br>
+    </ul>
+  </section>
 
-          <h4 id="awards">Awards</h4>
-          <ul class="small-bullet-list">
+  <section id="awards" class="band">
+    <div class="wrap">
+      <h2 class="section-title">Awards</h2>
+      <ul class="small-bullet-list">
             <li>Research impact award 2025, HEC Montréal</li>
             <li>Cascad best reproduced paper award, AFFI 2025, with Aymard &amp; Cenesizoglu</li>
             <li>Open data quality award 2024, Canadian Open Data Society, with Guidotti</li>
@@ -209,13 +222,17 @@
             <li>SAS/IIF research award 2014, with Kolly</li>
             <li>Runner-up, NYSE-Euronext prize 2008</li>
             <li>Chorafas prize 2008, University of Fribourg</li>
-          </ul><br>
-
-        </div>
-      </div>
-
+      </ul>
     </div>
   </section>
+
+  <section id="contact" class="wrap section">
+    <h2 class="section-title">Contact</h2>
+    <p class="contact-line"><i class="fas fa-envelope"></i> <a href="mailto:david.ardia@hec.ca">david.ardia@hec.ca</a></p>
+    <p class="contact-line"><i class="fas fa-map-marker-alt"></i> Department of Decision Sciences, HEC Montréal, 3000 Côte-Sainte-Catherine Road, Montréal (Québec) H3T 2A7, Canada</p>
+  </section>
+
+  </main>
 
 
 <div class="container">

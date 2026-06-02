@@ -1,133 +1,232 @@
-/* ========== GENERAL LAYOUT ========== */
+/* ===================================================================
+   David Ardia — minimalist academic theme
+   =================================================================== */
 
-#about .row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+:root {
+  --accent: #2962ff;
+  --accent-dark: #1c46c2;
+  --ink: #1f2733;
+  --muted: #5b6675;
+  --line: #e6e9ef;
+  --band: #f6f8fb;
+  --maxw: 880px;
 }
 
-#about .col-12,
-#about .col-lg-4,
-#about .col-lg-8 {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  text-align: left;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-/* ========== PROFILE SECTION ========== */
-
-#profile {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  margin-bottom: 0;
-  gap: 0;
-}
-
-#profile .portrait {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 20px 0 10px 0;
-}
-
-#profile .portrait-title {
-  margin: 10px 0 5px 0;
-}
-
-#profile .portrait-title h2 {
-  font-weight: normal;
-}
-
-#profile .network-icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 10px 0;
-}
-
-#profile .network-icon li {
-  margin: 0;
-}
-
-#profile .network-icon i {
-  font-size: 3rem;
-  color: #2962ff;
-  transition: color 0.2s;
-}
-
-#profile .network-icon i:hover {
-  color: #2962ff;
-}
-
-.profile-column {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.big-icon {
-  font-size: 1.8rem; /* Adjust as needed */
-  margin-top: 8px; /* Adds space above each icon */
-}
-
-/* ========== TYPOGRAPHY ========== */
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  color: #222;
+  margin: 0;
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+/* ---- Layout helpers ---- */
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
+.section { padding: 64px 24px; }
+
+.band { background: var(--band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.band .wrap { padding-top: 64px; padding-bottom: 64px; }
+
+/* ---- Headings ---- */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.4rem;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 48px; height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.sub-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 2rem 0 0.6rem;
+}
+
+/* ---- Links ---- */
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+/* ===================================================================
+   Sticky header / nav
+   =================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.brand:hover { color: var(--accent); text-decoration: none; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent); }
+
+/* mobile burger (checkbox hack) */
+.nav-toggle { display: none; }
+.nav-burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-burger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.2s; }
+
+/* ===================================================================
+   Hero
+   =================================================================== */
+.hero {
+  text-align: center;
+  padding: 72px 24px 56px;
+}
+.hero .portrait {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 24px rgba(31,39,51,0.16);
+  margin-bottom: 22px;
+}
+.hero-name {
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.hero-tagline {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+/* social icon row */
+.social-row {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 0;
+  margin: 0;
+}
+.social-row a {
+  color: var(--muted);
+  font-size: 1.7rem;
+  line-height: 1;
+  transition: color 0.18s, transform 0.18s;
+  display: inline-block;
+}
+.social-row a:hover { color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+
+/* ===================================================================
+   About / body text
+   =================================================================== */
+#about p { margin: 0; }
+
+/* ===================================================================
+   Publication & award lists
+   =================================================================== */
 .small-bullet-list {
-  list-style-type: disc;
-  padding-left: 0.9em;
-  margin: 0.2em 0;
-  font-size: 0.9em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 .small-bullet-list li {
-  margin-bottom: 0;
+  position: relative;
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.96rem;
+}
+.small-bullet-list li:last-child { border-bottom: none; }
+.small-bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 19px;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
 }
 
-.small-bullet-list li::marker {
-  font-size: 0.6em;
-}
+/* ===================================================================
+   Contact
+   =================================================================== */
+.contact-line { margin: 0.4rem 0; color: var(--muted); }
+.contact-line i { color: var(--accent); width: 1.2em; }
+.contact-line a { font-weight: 600; }
 
-a {
-  color: #3498db; /* bleu moyen */
-  text-decoration: none;
+/* ===================================================================
+   Footer
+   =================================================================== */
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 0;
+  padding: 28px 0;
 }
+.site-footer .powered-by { font-size: 0.85rem; color: var(--muted); margin: 0; }
+.button_icon i { color: var(--muted); }
+.button_icon i:hover { color: var(--accent); }
 
-a:hover {
-  text-decoration: underline;
+/* ===================================================================
+   Responsive
+   =================================================================== */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .nav-burger { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 60px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .nav-toggle:checked ~ .nav-links { max-height: 320px; }
+  .nav-links a { padding: 14px 24px; border-bottom: 1px solid var(--line); }
+  .nav-links a:hover { border-bottom-color: var(--line); }
+  .hero-name { font-size: 1.9rem; }
+  .hero .portrait { width: 150px; height: 150px; }
+  .section, .band .wrap { padding-top: 48px; padding-bottom: 48px; }
 }
-
-a i {
-  color: #3498db;
-}
-
-#about p,
-#profile p {
-  text-align: justify;
-}
-
-.site-footer .powered-by {
-  font-size: 0.7em;
-}
-
