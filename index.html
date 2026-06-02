@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="./styles.css?v=14">
+  <link rel="stylesheet" href="./styles.css?v=15">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="./img/icon-192.png">
@@ -273,18 +273,45 @@
     var research = document.getElementById('research');
     if (!input || !research) return;
     var empty = document.getElementById('pubSearchEmpty');
+    var toggle = document.getElementById('togglePubs');
+    var otherList = document.getElementById('otherPubList');
     var items = Array.prototype.slice.call(research.querySelectorAll('.small-bullet-list li'));
     var headings = Array.prototype.slice.call(research.querySelectorAll('.sub-title'));
+    var otherItems = otherList ? Array.prototype.slice.call(otherList.children) : [];
+    var LIMIT = 5;
+    var expanded = false;
 
-    function apply() {
+    function render() {
       var q = input.value.trim().toLowerCase();
-      var visible = 0;
-      items.forEach(function (li) {
-        var match = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
-        li.style.display = match ? '' : 'none';
-        if (match) visible++;
-      });
-      // hide a subsection heading when its list has no visible entries
+      if (q) {
+        // Search mode: match across all publications, ignore the collapse.
+        var visible = 0;
+        items.forEach(function (li) {
+          var match = li.textContent.toLowerCase().indexOf(q) !== -1;
+          li.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        if (empty) empty.hidden = visible !== 0;
+        if (toggle) toggle.hidden = true;
+      } else {
+        // Browse mode: show all, except the collapsed tail of "Other publications".
+        items.forEach(function (li) { li.style.display = ''; });
+        if (!expanded) {
+          otherItems.forEach(function (li, i) { if (i >= LIMIT) li.style.display = 'none'; });
+        }
+        if (empty) empty.hidden = true;
+        if (toggle) {
+          if (otherItems.length > LIMIT) {
+            toggle.hidden = false;
+            toggle.textContent = expanded
+              ? 'Show fewer'
+              : 'Show all publications (' + (otherItems.length - LIMIT) + ' more)';
+          } else {
+            toggle.hidden = true;
+          }
+        }
+      }
+      // Hide a subsection heading when its list has no visible entries.
       headings.forEach(function (h) {
         var ul = h.nextElementSibling;
         var any = ul && Array.prototype.some.call(ul.children, function (li) {
@@ -292,10 +319,11 @@
         });
         h.style.display = any ? '' : 'none';
       });
-      if (empty) empty.hidden = visible !== 0;
     }
 
-    input.addEventListener('input', apply);
+    input.addEventListener('input', render);
+    if (toggle) toggle.addEventListener('click', function () { expanded = !expanded; render(); });
+    render();
   })();
 </script>
 
