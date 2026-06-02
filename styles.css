@@ -172,19 +172,8 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   margin: 0;
 }
 .small-bullet-list li {
-  position: relative;
-  padding: 6px 0 6px 20px;
-  border-bottom: 1px solid var(--line);
+  padding: 6px 0;
   font-size: 0.96rem;
-}
-.small-bullet-list li:last-child { border-bottom: none; }
-.small-bullet-list li::before {
-  content: "";
-  position: absolute;
-  left: 2px; top: 13px;
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
 }
 
 /* ===================================================================
