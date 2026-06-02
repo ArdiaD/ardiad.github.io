@@ -149,7 +149,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   font-size: 2.3rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0 0 4px;
+  margin: 0 0 14px;
   color: #000;
 }
 .hero-tagline {
@@ -164,7 +164,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 22px;
+  gap: 11px;
   padding: 0;
   margin: 0;
 }
