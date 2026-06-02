@@ -224,7 +224,7 @@
   <section id="awards" class="band">
     <div class="wrap">
       <h2 class="section-title">Awards</h2>
-      <ul class="small-bullet-list">
+      <ul class="small-bullet-list" id="awardList">
             <li><a href="https://www.hec.ca/en/news/2025/research-and-teaching-awards" target="_blank" rel="noopener">Research impact award</a> 2025, HEC Montréal</li>
             <li><a href="https://www.cascad.tech/news/" target="_blank" rel="noopener">Cascad best reproduced paper award</a>, AFFI 2025, with Aymard &amp; Cenesizoglu</li>
             <li><a href="https://www.opendatasociety.ca/copy-of-2023-winners" target="_blank" rel="noopener">Open data quality award</a> 2024, Canadian Open Data Society, with Guidotti</li>
@@ -240,6 +240,7 @@
             <li>Runner-up, NYSE-Euronext prize 2008</li>
             <li>Chorafas prize 2008, University of Fribourg</li>
       </ul>
+      <button type="button" id="toggleAwards" class="show-more-btn" hidden>Show all awards</button>
     </div>
   </section>
 
@@ -323,6 +324,28 @@
 
     input.addEventListener('input', render);
     if (toggle) toggle.addEventListener('click', function () { expanded = !expanded; render(); });
+    render();
+  })();
+
+  (function () {
+    var toggle = document.getElementById('toggleAwards');
+    var list = document.getElementById('awardList');
+    if (!toggle || !list) return;
+    var items = Array.prototype.slice.call(list.children);
+    var LIMIT = 5;
+    var expanded = false;
+
+    function render() {
+      items.forEach(function (li, i) { li.style.display = (expanded || i < LIMIT) ? '' : 'none'; });
+      if (items.length > LIMIT) {
+        toggle.hidden = false;
+        toggle.textContent = expanded ? 'Show fewer' : 'Show all awards (' + (items.length - LIMIT) + ' more)';
+      } else {
+        toggle.hidden = true;
+      }
+    }
+
+    toggle.addEventListener('click', function () { expanded = !expanded; render(); });
     render();
   })();
 </script>
