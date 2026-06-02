@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="./styles.css?v=15">
+  <link rel="stylesheet" href="./styles.css?v=16">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="./img/icon-192.png">
@@ -491,6 +491,38 @@
     toggle.addEventListener('click', function () { expanded = !expanded; render(); });
     render();
   });
+
+  // Highlight the nav link of the section currently in view.
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var map = {};
+    links.forEach(function (a) {
+      var id = (a.getAttribute('href') || '').replace('#', '');
+      if (id) map[id] = a;
+    });
+    var sections = Object.keys(map)
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    function pick() {
+      var line = 100; // just below the sticky header
+      var activeId = null;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].getBoundingClientRect().top <= line) activeId = sections[i].id;
+      }
+      // At the very bottom, force the last section (short trailing sections
+      // may never reach the trigger line).
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        activeId = sections[sections.length - 1].id;
+      }
+      links.forEach(function (a) { a.classList.remove('active'); });
+      if (activeId && map[activeId]) map[activeId].classList.add('active');
+    }
+    window.addEventListener('scroll', pick, { passive: true });
+    window.addEventListener('resize', pick);
+    pick();
+  })();
 </script>
 
 </body>

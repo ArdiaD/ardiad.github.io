@@ -82,13 +82,14 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   border-bottom: 1px solid var(--line);
 }
 .nav-inner {
-  max-width: 1080px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 24px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 .brand {
   font-weight: 700;
@@ -97,15 +98,16 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   letter-spacing: -0.01em;
 }
 .brand:hover { color: var(--accent); text-decoration: none; }
-.nav-links { display: flex; gap: 28px; }
+.nav-links { display: flex; gap: 20px; white-space: nowrap; }
 .nav-links a {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
 }
-.nav-links a:hover { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent); }
+.nav-links a:hover,
+.nav-links a.active { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent); }
 
 /* mobile burger (checkbox hack) */
 .nav-toggle { display: none; }
