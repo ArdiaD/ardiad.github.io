@@ -116,41 +116,53 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
    Hero
    =================================================================== */
 .hero {
-  text-align: center;
-  padding: 72px 24px 56px;
+  padding: 48px 24px;
   background-image:
-    linear-gradient(rgba(255,255,255,0.62), rgba(255,255,255,0.78)),
+    linear-gradient(to right,
+      rgba(255,255,255,0.93) 0%,
+      rgba(255,255,255,0.88) 44%,
+      rgba(255,255,255,0.55) 72%,
+      rgba(255,255,255,0.38) 100%),
     url('./img/background.jpg?v=2');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+.hero-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+.hero-text { text-align: left; }
 .hero .portrait {
-  width: 190px;
-  height: 190px;
+  width: 168px;
+  height: 168px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #fff;
   box-shadow: 0 6px 24px rgba(31,39,51,0.22);
-  margin-bottom: 22px;
+  flex-shrink: 0;
+  margin: 0;
 }
 .hero-name {
   font-size: 2.3rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
 }
 .hero-tagline {
   font-size: 1.1rem;
   color: var(--muted);
-  margin: 0 0 22px;
+  margin: 0 0 16px;
 }
 
 /* social icon row */
 .social-row {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 22px;
   padding: 0;
@@ -223,6 +235,14 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   .nav-links a { padding: 14px 24px; border-bottom: 1px solid var(--line); }
   .nav-links a:hover { border-bottom-color: var(--line); }
   .hero-name { font-size: 1.9rem; }
-  .hero .portrait { width: 150px; height: 150px; }
+  .hero .portrait { width: 140px; height: 140px; }
+  .hero-inner { flex-direction: column; gap: 18px; text-align: center; }
+  .hero-text { text-align: center; }
+  .social-row { justify-content: center; }
+  .hero {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)),
+      url('./img/background.jpg?v=2');
+  }
   .section, .band .wrap { padding-top: 28px; padding-bottom: 28px; }
 }
