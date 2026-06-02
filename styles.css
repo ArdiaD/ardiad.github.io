@@ -220,6 +220,20 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 }
 
 /* ===================================================================
+   Projects
+   =================================================================== */
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.project-list li {
+  padding: 7px 0;
+  font-size: 0.98rem;
+}
+.project-list a { font-weight: 700; }
+
+/* ===================================================================
    Contact
    =================================================================== */
 .contact-line { margin: 0.4rem 0; color: var(--muted); }
