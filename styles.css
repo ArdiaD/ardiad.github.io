@@ -138,8 +138,8 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 }
 .hero-text { text-align: left; }
 .hero .portrait {
-  width: 168px;
-  height: 168px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 6px 24px rgba(31,39,51,0.22);
