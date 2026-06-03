@@ -236,7 +236,7 @@
             <li>Runner-up, NYSE-Euronext prize 2008</li>
             <li>Chorafas prize 2008, University of Fribourg</li>
       </ul>
-      <button type="button" id="toggleAwards" class="show-more-btn" hidden>Show all awards</button>
+      <button type="button" id="toggleAwards" class="show-more-btn" hidden>Show all impact</button>
       <h3 class="sub-title">Media</h3>
       <ul class="small-bullet-list">
         <li><a href="https://www.lapresse.ca/affaires/finances-personnelles/investissement-factoriel/des-cles-pour-battre-le-marche/2026-05-17/il-n-y-a-rien-de-gratuit.php" target="_blank" rel="noopener">Il n'y a rien de gratuit</a>, <em>La Presse</em>, May 2026</li>
@@ -447,7 +447,7 @@
       items.forEach(function (li, i) { li.style.display = (expanded || i < LIMIT) ? '' : 'none'; });
       if (items.length > LIMIT) {
         toggle.hidden = false;
-        toggle.textContent = expanded ? 'Show fewer' : 'Show all awards (' + (items.length - LIMIT) + ' more)';
+        toggle.textContent = expanded ? 'Show fewer' : 'Show all impact';
       } else {
         toggle.hidden = true;
       }
