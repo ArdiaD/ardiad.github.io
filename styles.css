@@ -181,7 +181,8 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ===================================================================
    About / body text
    =================================================================== */
-#about p { margin: 0; text-align: justify; }
+#about p { margin: 0 0 1rem; text-align: justify; }
+#about p:last-child { margin-bottom: 0; }
 
 /* ===================================================================
    Publication search
