@@ -20,7 +20,7 @@ There are no tests, linters, or build commands. "Running" the site means opening
    Re-copy `index.html`/`styles.css` into `/tmp/siteweb-preview/` after every edit and hard-reload (the browser caches `styles.css`). To check the live deploy, `curl` the davidardia.com URLs directly.
 
 2. **The headless preview browser does not fire `IntersectionObserver` or `requestAnimationFrame` callbacks, and does not reflect programmatic `input.checked = true` into the `:checked` CSS state.** This bites any JS verification:
-   - Scroll-spy / lazy logic must use plain `scroll`/`resize` listeners (see below), not IO/RAF, or it can't be tested here.
+   - Scroll-spy / lazy logic must use plain `scroll`/`resize` listeners (see below), not IO/RAF, or it can't be tested here. After a programmatic `window.scrollTo`, dispatch a synthetic `new Event('scroll')` so the listener fires before you read state.
    - To verify the mobile menu, trigger a **real click** on `label.nav-burger` (the preview click tool) rather than setting `.checked` — only a real click flips `:checked`.
    - The screenshot tool is flaky on the reused server and on mid-page scroll positions; restarting the preview server tends to fix it, and top-of-page captures are most reliable.
 
@@ -28,9 +28,13 @@ There are no tests, linters, or build commands. "Running" the site means opening
 
 Body = sticky `<header>` nav + `<main>` with these sections in order, then footer:
 
-`hero` → `about` → `projects` → `research` → `awards` → `students` → `media` → `contact`
+`hero` → `about` → `research` → `impact` → `students` → `contact`
 
-The `.nav-links` anchors mirror every section (except `hero`) and **must stay in sync** with the section order.
+The 5 `.nav-links` anchors mirror every section except `hero` and **must stay in sync** with the section order. Several sections bundle subsections under one `<h2>` (see below), so the nav is deliberately shorter than the content map:
+- **About** — 3 paragraphs; the last names the Sentometrics Research and FAME initiatives inline (there is no separate Projects section).
+- **Research** — `<h3>` subsections: *Selected publications*, *Working papers*, *Other publications*.
+- **Impact** — `<h3>` subsections: *Awards* and *Media* (a former standalone Media section, now merged in).
+- **Students** — an intro `<p>` then `<h3>` subsections: *Postdoctoral researchers*, *PhD students*, *MSc theses*, *Supervised projects*.
 
 ## Architecture & conventions (the non-obvious parts)
 
@@ -41,10 +45,10 @@ The `.nav-links` anchors mirror every section (except `hero`) and **must stay in
 - `<title>` is the browser tab text **and** the primary SEO headline — same element, can't be separated (currently "David Ardia — Full IVADO Professor").
 
 ### CSS cache-busting
-`index.html` references the stylesheet as `./styles.css?v=N`. **Bump `N` whenever you change `styles.css`** so returning visitors fetch the new CSS. Currently `?v=17`. (HTML changes need no bump — Pages serves it fresh.)
+`index.html` references the stylesheet as `./styles.css?v=N`. **Bump `N` whenever you change `styles.css`** so returning visitors fetch the new CSS. Currently `?v=19`. (HTML changes need no bump — Pages serves it fresh.)
 
 ### Section banding — alternate grey/white
-Sections alternate two structures; preserve the alternation when adding/reordering:
+Sections alternate two structures; preserve the alternation when adding/reordering (current order is grey/white/grey/white/grey: about, research, impact, students, contact):
 - **White:** `<section id="x" class="wrap section">…</section>` (content directly inside).
 - **Grey band:** `<section id="x" class="band"><div class="wrap">…</div></section>` — note the extra `.wrap` div; mismatching its `</div>` when converting a section between the two is the most common breakage here (it once produced a duplicated heading). After structural edits, run an HTML tag-balance check.
 
@@ -52,22 +56,24 @@ Sections alternate two structures; preserve the alternation when adding/reorderi
 Content sections use `.wrap` (`max-width: var(--maxw)`, currently 880px, centered, 24px padding). `.nav-inner` uses the **same** `--maxw` + padding so the nav links share the exact horizontal bounds as the body text; the links use `justify-content: space-between` so the first/last align to the text edges. There is **no brand/wordmark** in the header (removed). Don't widen the nav past `--maxw` or it overflows the text column on wide screens.
 
 ### Collapsible lists ("Show more") + scroll-spy + search — all in one inline `<script>`
-All client JS lives in a single `<script>` at the bottom of `index.html`, as several IIFEs:
-- **Collapsible lists** collapse to the first **5** items behind a `<button class="show-more-btn" hidden>` toggle:
-  - Awards: `#awardList` + `#toggleAwards`.
-  - Students: one `#toggleStudents` button controls **two** lists together (`#thesisList` for MSc theses and `#studentList` for supervised projects) — expanding it reveals both. (Postdoc and PhD sub-lists are short and always shown.)
-  - Adding a collapsible list = add a `<ul id="…">`, a toggle button, and a small IIFE in the same style.
-- **Research is special:** `#pubSearch` filters across *all* publication `<li>` (title/journal/year/co-author), reveals matches even inside the collapsed `#otherPubList` tail, and hides its `#togglePubs` button while a query is active. Search + collapse share one render function — edit that function rather than adding a separate handler.
-- **Scroll-spy nav highlight:** a `scroll`/`resize` listener (NOT IntersectionObserver — see preview gotcha) adds `.active` to the nav link of the section under a ~100px line below the header, with a bottom-of-page fallback to the last section (short trailing sections like Media/Contact may never reach the line otherwise).
+All client JS lives in a single `<script>` at the bottom of `index.html`, as several IIFEs. Each collapsible list collapses to the first **5** items behind a `<button class="show-more-btn" hidden>` toggle whose label/visibility the JS sets:
+- **Impact:** `#toggleAwards` toggles `#awardList` (the awards list). The button is positioned at the **bottom** of the Impact section (below the Media subsection) on purpose, and its label is "Show all impact" / "Show fewer".
+- **Students:** one `#toggleStudents` button toggles **two** lists together — `#thesisList` (MSc theses) and `#studentList` (supervised projects); clicking it reveals both. The Postdoc and PhD sub-lists are short and always fully shown.
+- **Research:** `#otherPubList` collapses behind `#togglePubs`, **and** `#pubSearch` filters across *all* publication `<li>` (title/journal/year/co-author), revealing matches even inside the collapsed tail and hiding the toggle while a query is active. Search + collapse share one render function — edit that function rather than adding a separate handler.
+- **Scroll-spy nav highlight:** a `scroll`/`resize` listener (NOT IntersectionObserver — see preview gotcha) adds `.active` to the nav link of the section whose top is under a ~100px line below the header, with a bottom-of-page fallback to the last section (short trailing sections may never reach the line otherwise).
 
 ### Email is obfuscated on purpose
 No plain `mailto:` / address anywhere in source: Contact shows `david.ardia [at] hec.ca` as text, the hero envelope icon links to `#contact`, and the JSON-LD has no `email` field. Don't reintroduce a scrapeable address.
 
 ### Content entry conventions
-Publications/awards/students are hand-authored `<li>`s. Awards link only the award name (the year/affiliation stays plain text); award entries without a source URL stay plain. Students are grouped Postdocs → PhD → MSc theses → Supervised projects, formatted `<em>Title</em>, Name (details)`, newest first. Escape `&` (e.g. `S&amp;P`, `R&amp;D`) and verify HTML tag balance after large list edits.
+Publications/awards/students are hand-authored `<li>`s.
+- **Publications** (Research): `<a>Title</a>, <em>Journal</em> YEAR, with Co-authors [Code/Data]`, newest first; the search reads each `<li>`'s text.
+- **Awards** (Impact): link only the award name (year/affiliation stay plain text); awards without a source URL stay plain.
+- **Students:** grouped Postdocs → PhD → MSc theses → Supervised projects, formatted `<em>Title</em>, Name (details)`, newest first.
+Escape `&` (e.g. `S&amp;P`, `R&amp;D`) and verify HTML tag balance after large list edits.
 
 ### Images
-`img/background.jpg` (web-optimized ~300 KB) is the hero background referenced in CSS; `img/background.png` is the heavy source. Favicons are `img/icon.png` (180²) and `img/icon-192.png`. Regenerate optimized JPEGs with `sips -s format jpeg -s formatOptions <q> in.png --out out.jpg` — **always set the format explicitly**; plain `sips` without `-s format` silently writes JPEG bytes into a `.png` filename.
+`img/background.jpg` (web-optimized ~300 KB) is the hero background referenced in CSS; `img/background.png` is the heavy source. The hero portrait is `img/Dave.jpg` (200px circle). Favicons are `img/icon.png` (180²) and `img/icon-192.png`. Regenerate optimized JPEGs with `sips -s format jpeg -s formatOptions <q> in.png --out out.jpg` — **always set the format explicitly**; plain `sips` without `-s format` silently writes JPEG bytes into a `.png` filename.
 
 ### External assets (CDN, no local copies)
 Open Sans (Google Fonts), Academicons **1.9.4** (academic icons incl. SSRN/ORCID — older 1.8.x lacks the SSRN glyph), Font Awesome 5.4.1, Bootstrap 4 (now only the footer's `.container`/`.float-right` use it). Styling lives in `styles.css`, which uses CSS custom properties in `:root` (e.g. `--accent` link/accent blue, `--maxw` content width, `--band` grey).
