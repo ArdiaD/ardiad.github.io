@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="./styles.css?v=19">
+  <link rel="stylesheet" href="./styles.css?v=20">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="./img/icon-192.png">
@@ -96,7 +96,9 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
+        <a href="#software">Software</a>
         <a href="#impact">Impact</a>
+        <a href="#teaching">Teaching</a>
         <a href="#students">Students</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -216,8 +218,26 @@
     <button type="button" id="togglePubs" class="show-more-btn" hidden>Show all publications</button>
   </section>
 
-  <section id="impact" class="band">
+  <section id="software" class="band">
     <div class="wrap">
+      <h2 class="section-title">Software</h2>
+      <p>Open-source R packages developed with collaborators and distributed on CRAN.</p>
+      <ul class="small-bullet-list">
+        <li><a href="https://CRAN.R-project.org/package=bidask" target="_blank" rel="noopener">bidask</a> — Efficient estimation of bid-ask spreads from open, high, low, and close prices.</li>
+        <li><a href="https://CRAN.R-project.org/package=sentometrics" target="_blank" rel="noopener">sentometrics</a> — Computation, aggregation, and prediction with textual sentiment.</li>
+        <li><a href="https://CRAN.R-project.org/package=MSGARCH" target="_blank" rel="noopener">MSGARCH</a> — Markov-switching GARCH models.</li>
+        <li><a href="https://CRAN.R-project.org/package=GAS" target="_blank" rel="noopener">GAS</a> — Generalized autoregressive score models.</li>
+        <li><a href="https://CRAN.R-project.org/package=RiskPortfolios" target="_blank" rel="noopener">RiskPortfolios</a> — Construction of risk-based portfolios.</li>
+        <li><a href="https://CRAN.R-project.org/package=PeerPerformance" target="_blank" rel="noopener">PeerPerformance</a> — Luck-corrected peer performance analysis.</li>
+        <li><a href="https://CRAN.R-project.org/package=DEoptim" target="_blank" rel="noopener">DEoptim</a> — Global optimization by differential evolution.</li>
+        <li><a href="https://CRAN.R-project.org/package=nse" target="_blank" rel="noopener">nse</a> — Computation of numerical standard errors.</li>
+        <li><a href="https://CRAN.R-project.org/package=AdMit" target="_blank" rel="noopener">AdMit</a> — Adaptive mixtures of Student-t distributions.</li>
+        <li><a href="https://CRAN.R-project.org/package=bayesGARCH" target="_blank" rel="noopener">bayesGARCH</a> — Bayesian estimation of the GARCH(1,1) model with Student-t innovations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="impact" class="wrap section">
       <h2 class="section-title">Impact</h2>
       <h3 class="sub-title">Awards</h3>
       <ul class="small-bullet-list" id="awardList">
@@ -241,10 +261,22 @@
         <li><a href="https://www.lapresse.ca/affaires/finances-personnelles/investissement-factoriel/des-cles-pour-battre-le-marche/2026-05-17/il-n-y-a-rien-de-gratuit.php" target="_blank" rel="noopener">Il n'y a rien de gratuit</a>, <em>La Presse</em>, May 2026</li>
         <li><a href="https://www.lemonde.fr/argent/article/2025/12/05/quand-l-ia-vous-aide-a-gerer-votre-patrimoine_6656069_1657007.html" target="_blank" rel="noopener">Quand l'IA vous aide à gérer votre patrimoine</a>, <em>Le Monde</em>, December 2025</li>
         <li><a href="https://www.lapresse.ca/affaires/portfolio/2022-02-18/intelligence-artificielle/incertitude-economique-la-machine-a-voyager-dans-le-temps.php" target="_blank" rel="noopener">Incertitude économique : la machine à voyager dans le temps</a>, <em>La Presse</em>, February 2022</li>
-        <li><a href="https://www.nytimes.com/2021/11/05/business/climate-green-stock-market.html" target="_blank" rel="noopener">Climate concerns and the green stock market</a>, <em>The New York Times</em>, November 2021</li>
+        <li><a href="https://www.nytimes.com/2021/11/05/business/climate-green-stock-market.html" target="_blank" rel="noopener">When Bad News About the Climate Is Good for Green Stocks</a>, <em>The New York Times</em>, November 2021</li>
         <li><a href="https://www.lesaffaires.com/secteurs/general/mauvaise-nouvelle-pour-le-climat-bonne-nouvelle-pour-la-bourse-2/" target="_blank" rel="noopener">Mauvaise nouvelle pour le climat, bonne nouvelle pour la Bourse</a>, <em>Les Affaires</em>, November 2021</li>
       </ul>
       <button type="button" id="toggleAwards" class="show-more-btn" hidden>Show all impact</button>
+  </section>
+
+  <section id="teaching" class="band">
+    <div class="wrap">
+      <h2 class="section-title">Teaching</h2>
+      <p>I teach graduate courses on statistical and machine-learning methods for financial data in the MSc in Financial Engineering at HEC Montréal, in both French and English sections.</p>
+      <ul class="small-bullet-list">
+        <li><strong>Winter 2026</strong> — <em>Statistical Methods for Financial Data</em> (MATH 60633 / 60633A)</li>
+        <li><strong>Fall 2025</strong> — <em>Machine Learning Applied to Financial Data</em> (MATH 60610 / 60610A)</li>
+        <li><strong>Winter 2025</strong> — <em>Statistical Methods for Financial Data</em> (MATH 60633 / 60633A)</li>
+        <li><strong>Fall 2024</strong> — <em>Machine Learning Applied to Financial Data</em> (MATH 60610 / 60610A)</li>
+      </ul>
     </div>
   </section>
 
