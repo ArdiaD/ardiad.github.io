@@ -67,6 +67,8 @@ body {
 
 /* ---- Links ---- */
 a { color: var(--accent); text-decoration: none; }
+
+u { text-decoration-thickness: 2.5px; text-underline-offset: 2px; }
 a:hover { color: var(--accent-dark); text-decoration: underline; }
 
 /* ===================================================================
