@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="./styles.css?v=21">
+  <link rel="stylesheet" href="./styles.css?v=22">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="./img/icon-192.png">
@@ -100,7 +100,6 @@
         <a href="#impact">Impact</a>
         <a href="#teaching">Teaching</a>
         <a href="#students">Students</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -112,12 +111,12 @@
     <img class="portrait" src="./img/Dave.jpg" itemprop="image" alt="David Ardia">
     <div class="hero-text">
     <h1 class="hero-name" itemprop="name">David Ardia</h1>
-    <ul class="social-row">
-      <li><a href="#contact" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-      <li><a itemprop="sameAs" href="https://ca.linkedin.com/in/davidardia" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-      <li><a itemprop="sameAs" href="https://scholar.google.ca/citations?user=BPNrOUYAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a></li>
-      <li><a itemprop="sameAs" href="https://github.com/ArdiaD" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-      <li><a href="https://www.dropbox.com/sh/sulg6zx1qdfgxq6/AABzW2DCaITRxoldjLvJzqGYa?dl=0" target="_blank" rel="noopener" aria-label="CV"><i class="ai ai-cv"></i></a></li>
+    <p class="roles-label">Academic Roles</p>
+    <ul class="role-list">
+      <li>Full <a href="https://ivado.ca/en/" target="_blank" rel="noopener">IVADO</a> Professor, <a href="https://www.hec.ca/mqg/index.html" target="_blank" rel="noopener">Department of Decision Sciences</a>, <a href="https://www.hec.ca/en/" target="_blank" rel="noopener">HEC Montréal</a></li>
+      <li>Director, <a href="https://www.hec.ca/en/programs/masters/master-financial-engineering/index.html" target="_blank" rel="noopener">MSc in Financial Engineering</a></li>
+      <li>Associate Editor, <a href="https://www.sciencedirect.com/journal/international-journal-of-forecasting" target="_blank" rel="noopener">International Journal of Forecasting</a>, <a href="https://www.jstatsoft.org/index" target="_blank" rel="noopener">Journal of Statistical Software</a>, <a href="https://journal.r-project.org/" target="_blank" rel="noopener">R Journal</a></li>
+      <li>Fellow, <a href="https://www.institutlouisbachelier.org" target="_blank" rel="noopener">Institut Louis Bachelier</a></li>
     </ul>
     </div>
     </div>
@@ -125,7 +124,18 @@
 
   <section id="about" class="band">
     <div class="wrap">
-      <h2 class="section-title">About</h2>
+      <div class="about-header">
+        <h2 class="section-title">About</h2>
+        <div class="about-actions">
+          <ul class="social-row">
+            <li><a href="#contact" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="https://ca.linkedin.com/in/davidardia" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://scholar.google.ca/citations?user=BPNrOUYAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a></li>
+            <li><a href="https://github.com/ArdiaD" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+          </ul>
+          <a class="btn" href="https://www.dropbox.com/sh/sulg6zx1qdfgxq6/AABzW2DCaITRxoldjLvJzqGYa?dl=0" target="_blank" rel="noopener">CV</a>
+        </div>
+      </div>
 
           <p>I am a Full <a href="https://ivado.ca/en/" target="_blank">IVADO</a> professor in the <a href="https://www.hec.ca/mqg/index.html" target="_blank">Department of Decision Sciences</a> at <a href="https://www.hec.ca/en/" target="_blank">HEC Montréal</a> and Director of the <a href="https://www.hec.ca/en/programs/masters/master-financial-engineering/index.html" target="_blank">MSc in Financial Engineering</a> program. My current research centers on artificial intelligence, machine learning, and natural language processing for finance — building methods that turn data, including unstructured text, into signals for risk forecasting, asset allocation, and economic prediction. Grounded in financial econometrics, my work and the projects I supervise span risk modeling, textual sentiment, hedge-fund and portfolio performance, climate finance, credit risk, and market microstructure.</p>
 
@@ -137,6 +147,9 @@
 
   <section id="research" class="wrap section">
     <h2 class="section-title">Research</h2>
+    <h3 class="sub-title">Research interests</h3>
+    <p class="research-fields"><strong>Primary fields:</strong> Financial econometrics, Machine learning for finance, Natural language processing, Risk modeling.</p>
+    <p class="research-fields"><strong>Secondary fields:</strong> Asset allocation, Climate finance, Market microstructure.</p>
     <div class="pub-search">
       <input type="search" id="pubSearch" placeholder="Search publications by title, journal, year, or co-author…" aria-label="Search publications" autocomplete="off">
       <p class="pub-search-empty" id="pubSearchEmpty" hidden>No publications match your search.</p>
