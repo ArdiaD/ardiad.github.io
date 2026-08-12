@@ -175,18 +175,52 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 
 .btn {
   display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
+  font-family: inherit;
   font-size: 0.92rem;
-  padding: 8px 18px;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--line);
   border-radius: 8px;
+  padding: 8px 18px;
   white-space: nowrap;
-  transition: background 0.18s;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
-.btn:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
+.btn:hover { border-color: var(--accent); background: rgba(51,102,255,0.07); text-decoration: none; }
 
 .research-fields { margin: 0.35rem 0; }
+
+/* Publication view tabs (Chronological / By topic) */
+.pub-tabs {
+  display: flex;
+  gap: 22px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 10px;
+}
+.pub-tab {
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 6px 0;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s;
+}
+.pub-tab:hover { color: var(--accent); }
+.pub-tab.is-active { color: var(--ink); border-bottom-color: var(--accent); }
+
+.topic-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 1.1rem 0 0.3rem;
+}
 
 /* social icon row */
 .social-row {
@@ -250,7 +284,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   cursor: pointer;
   transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
-.show-more-btn:hover { border-color: var(--accent); background: rgba(91,134,255,0.07); }
+.show-more-btn:hover { border-color: var(--accent); background: rgba(51,102,255,0.07); }
 
 /* ===================================================================
    Publication & award lists
