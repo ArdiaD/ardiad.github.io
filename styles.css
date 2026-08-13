@@ -112,7 +112,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   letter-spacing: -0.01em;
 }
 .brand:hover { color: var(--accent); text-decoration: none; }
-.nav-links { display: flex; flex: 1; justify-content: space-between; gap: 20px; white-space: nowrap; }
+.nav-links { display: flex; gap: 30px; white-space: nowrap; }
 .nav-links a {
   color: rgba(255,255,255,0.85);
   font-size: 0.9rem;
@@ -197,6 +197,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .btn:hover { border-color: var(--accent); background: rgba(0,31,77,0.06); text-decoration: none; }
 
 .research-fields { margin: 0.35rem 0; }
+.more-link { margin: 1rem 0 0; font-size: 0.95rem; color: var(--muted); }
 
 /* Publication view tabs (Chronological / By topic) */
 .pub-tabs {
