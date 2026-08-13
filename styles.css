@@ -71,7 +71,7 @@ main > section.wrap { max-width: none; padding: 26px 28px; margin: 0 0 24px; }
 }
 
 /* ---- Links ---- */
-a { color: var(--accent); text-decoration: none; }
+a { color: var(--accent); text-decoration: underline; }
 
 u { text-decoration-thickness: 2.5px; text-underline-offset: 2px; }
 a:hover { color: var(--accent-dark); text-decoration: underline; }
@@ -101,18 +101,19 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   font-size: 1.25rem;
   letter-spacing: -0.01em;
 }
-.brand, .brand a { color: #fff; }
+.brand, .brand a { color: #fff; text-decoration: none; }
 .brand a:hover { color: #fff; text-decoration: none; opacity: 0.85; }
 .nav-links { display: flex; gap: 24px; white-space: nowrap; }
 .nav-links a {
   color: #fff;
   font-size: 0.95rem;
   font-weight: 400;
+  text-decoration: none;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
 }
 .nav-links a:hover { color: #fff; text-decoration: underline; }
-.nav-links a.active { color: #fff; text-decoration: none; border-bottom-color: #fff; }
+.nav-links a.active { color: #fff; }
 
 /* mobile burger (checkbox hack) */
 .nav-toggle { display: none; }
@@ -194,6 +195,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   border: none;
   border-radius: 6px;
   padding: 0.65rem 1.2rem;
+  text-decoration: none;
   white-space: nowrap;
   transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
 }
@@ -259,6 +261,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   border-radius: 50%;
   background: var(--navy);
   color: #fff;
+  text-decoration: none;
   font-size: 1.05rem;
   line-height: 1;
   transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
@@ -320,12 +323,12 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
    Publication & award lists
    =================================================================== */
 .small-bullet-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: 0.3rem 0;
 }
 .small-bullet-list li {
-  padding: 2px 0;
+  margin-bottom: 0.4rem;
   font-size: 0.96rem;
 }
 
