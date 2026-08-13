@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="./styles.css?v=32">
+  <link rel="stylesheet" href="./styles.css?v=33">
 
   <link rel="icon" type="image/png" href="./img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="./img/icon-192.png">
@@ -54,6 +54,7 @@
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="research.html" class="active">Research</a>
+        <a href="impact.html">Impact</a>
         <a href="teaching.html">Teaching</a>
       </nav>
     </div>
@@ -63,13 +64,8 @@
 
   <section id="research" class="wrap section">
     <h2 class="section-title">Research</h2>
-    <h3 class="sub-title">Research interests</h3>
     <p class="research-fields"><strong>Primary fields:</strong> Financial econometrics, Machine learning for finance, Natural language processing, Risk modeling.</p>
     <p class="research-fields"><strong>Secondary fields:</strong> Asset allocation, Climate finance, Market microstructure.</p>
-    <div class="pub-search">
-      <input type="search" id="pubSearch" placeholder="Search publications by title, journal, year, or co-author…" aria-label="Search publications" autocomplete="off">
-      <p class="pub-search-empty" id="pubSearchEmpty" hidden>No publications match your search.</p>
-    </div>
     <h3 class="sub-title">Working papers</h3>
           <ul class="small-bullet-list">
             <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7202999" target="_blank">The intraday gamma-variance channel with public options data</a>, Working paper, with Vaudescal</li>
@@ -187,9 +183,9 @@
 
 <script>
   (function () {
-    var input = document.getElementById('pubSearch');
     var research = document.getElementById('research');
-    if (!input || !research) return;
+    if (!research) return;
+    var input = document.getElementById('pubSearch');
     var empty = document.getElementById('pubSearchEmpty');
     var toggle = document.getElementById('togglePubs');
     var otherList = document.getElementById('otherPubList');
@@ -254,7 +250,7 @@
     }
 
     function render() {
-      var q = input.value.trim().toLowerCase();
+      var q = input ? input.value.trim().toLowerCase() : '';
       if (q) {
         // Search mode: match across all publications, ignore the collapse.
         var visible = 0;
@@ -294,7 +290,7 @@
       });
     }
 
-    input.addEventListener('input', render);
+    if (input) input.addEventListener('input', render);
     if (toggle) toggle.addEventListener('click', function () { expanded = !expanded; render(); });
     if (tabs) {
       tabs.addEventListener('click', function (e) {
