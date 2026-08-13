@@ -271,10 +271,10 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   background: var(--navy);
   color: #fff;
   text-decoration: none;
-  font-size: 1.05rem;
   line-height: 1;
   transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
 }
+.social-row a svg { width: 17px; height: 17px; fill: currentColor; display: block; }
 .social-row a:hover {
   background: var(--accent);
   color: #fff;
