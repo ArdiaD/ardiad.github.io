@@ -137,7 +137,6 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   height: 250px;
   border-radius: 14px;
   object-fit: cover;
-  transform: scaleX(-1);
   box-shadow: 0 4px 16px rgba(0,31,77,0.18);
   flex-shrink: 0;
   margin: 0;
