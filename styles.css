@@ -71,7 +71,7 @@ main > section.wrap { max-width: none; padding: 26px 28px; margin: 0 0 24px; }
 }
 
 /* ---- Links ---- */
-a { color: var(--accent); text-decoration: underline; }
+a { color: var(--accent); text-decoration: none; }
 
 a:hover { color: var(--accent-dark); text-decoration: underline; }
 
@@ -169,8 +169,6 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   color: var(--ink);
 }
 .role-list li { padding: 5px 0; line-height: 1.5; }
-.role-list a { text-decoration: none; }
-.role-list a:hover { text-decoration: underline; }
 
 /* About header: section title on the left, contact actions on the right */
 .about-header {
