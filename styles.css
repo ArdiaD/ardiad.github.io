@@ -3,12 +3,14 @@
    =================================================================== */
 
 :root {
-  --accent: #3366ff;
-  --accent-dark: #2962ff;
-  --ink: #1f2733;
+  --navy: #001f4d;
+  --accent: #003d7a;
+  --accent-dark: #001f4d;
+  --ink: #212121;
   --muted: #5b6675;
-  --line: #e6e9ef;
-  --band: #f6f8fb;
+  --line: #e0e0e0;
+  --band: #ffffff;
+  --page: #f7f7f9;
   --maxw: 880px;
 }
 
@@ -22,7 +24,7 @@ body {
   font-size: 17px;
   line-height: 1.3;
   color: var(--ink);
-  background: #fff;
+  background: var(--page);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -34,16 +36,32 @@ body {
   padding: 0 24px;
 }
 
-.section { padding: 36px 24px; }
+/* Sections render as white cards on a light-grey page (Tolga-style). */
+main {
+  max-width: calc(var(--maxw) + 64px);
+  margin: 0 auto;
+  padding: 22px 24px 8px;
+}
+main > section {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 30px 34px;
+  margin: 0 0 22px;
+}
+main > section > .wrap,
+main > section.wrap { max-width: none; padding: 0; margin: 0; }
 
-.band { background: var(--band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.band .wrap { padding-top: 36px; padding-bottom: 36px; }
+.section { padding: 0; }
+.band { background: #fff; }
+.band .wrap { padding-top: 0; padding-bottom: 0; }
 
 /* ---- Headings ---- */
 .section-title {
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: var(--navy);
   margin: 0 0 1.2rem;
   padding-bottom: 0.4rem;
   position: relative;
@@ -59,9 +77,7 @@ body {
 .sub-title {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--navy);
   margin: 1.5rem 0 0.4rem;
 }
 
@@ -78,10 +94,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: saturate(180%) blur(10px);
-  -webkit-backdrop-filter: saturate(180%) blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: var(--navy);
 }
 .nav-inner {
   max-width: var(--maxw);
@@ -101,14 +114,14 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .brand:hover { color: var(--accent); text-decoration: none; }
 .nav-links { display: flex; flex: 1; justify-content: space-between; gap: 20px; white-space: nowrap; }
 .nav-links a {
-  color: var(--muted);
+  color: rgba(255,255,255,0.85);
   font-size: 0.9rem;
   font-weight: 600;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
 }
 .nav-links a:hover,
-.nav-links a.active { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent); }
+.nav-links a.active { color: #fff; text-decoration: none; border-bottom-color: #fff; }
 
 /* mobile burger (checkbox hack) */
 .nav-toggle { display: none; }
@@ -118,24 +131,19 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ===================================================================
    Hero
    =================================================================== */
-.hero {
-  padding: 44px 24px;
-  background: #fff;
-}
+.hero { background: #fff; }
 .hero-inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 34px;
 }
 .hero-text { text-align: left; }
 .hero .portrait {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
+  width: 210px;
+  height: 210px;
+  border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 6px 24px rgba(31,39,51,0.22);
+  box-shadow: 0 4px 16px rgba(0,31,77,0.18);
   flex-shrink: 0;
   margin: 0;
 }
@@ -149,7 +157,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .roles-label {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--navy);
   margin: 6px 0 8px;
 }
 .role-list {
@@ -186,7 +194,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   white-space: nowrap;
   transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
-.btn:hover { border-color: var(--accent); background: rgba(51,102,255,0.07); text-decoration: none; }
+.btn:hover { border-color: var(--accent); background: rgba(0,31,77,0.06); text-decoration: none; }
 
 .research-fields { margin: 0.35rem 0; }
 
@@ -216,7 +224,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .topic-title {
   font-size: 0.92rem;
   font-weight: 700;
-  color: var(--muted);
+  color: var(--navy);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin: 1.1rem 0 0.3rem;
@@ -267,7 +275,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 #pubSearch:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(91,134,255,0.18);
+  box-shadow: 0 0 0 3px rgba(0,61,122,0.18);
 }
 .pub-search-empty { color: var(--muted); margin: 12px 0 0; font-style: italic; }
 
@@ -284,7 +292,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   cursor: pointer;
   transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
-.show-more-btn:hover { border-color: var(--accent); background: rgba(51,102,255,0.07); }
+.show-more-btn:hover { border-color: var(--accent); background: rgba(0,31,77,0.06); }
 
 /* ===================================================================
    Publication & award lists
@@ -316,7 +324,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ===================================================================
    Contact
    =================================================================== */
-.contact-line { margin: 0.4rem 0; color: var(--muted); }
+.contact-line { margin: 0 0 8px; font-size: 0.85rem; color: var(--muted); }
 .contact-line i { color: var(--accent); width: 1.2em; }
 .contact-line a { font-weight: 600; }
 
@@ -326,7 +334,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .site-footer {
   border-top: 1px solid var(--line);
   margin-top: 0;
-  padding: 28px 0;
+  padding: 20px 0 28px;
 }
 .site-footer .powered-by { font-size: 0.85rem; color: var(--muted); margin: 0; }
 .button_icon i { color: var(--muted); }
