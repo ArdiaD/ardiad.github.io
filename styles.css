@@ -73,7 +73,6 @@ main > section.wrap { max-width: none; padding: 26px 28px; margin: 0 0 24px; }
 /* ---- Links ---- */
 a { color: var(--accent); text-decoration: underline; }
 
-u { text-decoration-thickness: 2.5px; text-underline-offset: 2px; }
 a:hover { color: var(--accent-dark); text-decoration: underline; }
 
 /* ===================================================================
