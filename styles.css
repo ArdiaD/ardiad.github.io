@@ -4,8 +4,8 @@
 
 :root {
   --navy: #001f4d;
-  --accent: #003d7a;
-  --accent-dark: #001f4d;
+  --accent: #1155cc;
+  --accent-dark: #003d7a;
   --ink: #212121;
   --muted: #5b6675;
   --line: #e0e0e0;
@@ -20,7 +20,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 17px;
   line-height: 1.3;
   color: var(--ink);
@@ -46,8 +46,8 @@ main > section {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 30px 34px;
-  margin: 0 0 22px;
+  padding: 34px 40px;
+  margin: 0 0 24px;
 }
 main > section > .wrap,
 main > section.wrap { max-width: none; padding: 0; margin: 0; }
@@ -100,18 +100,20 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 24px;
-  height: 60px;
+  height: 66px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  gap: 24px;
 }
 .brand {
+  margin: 0;
   font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--ink);
+  font-size: 1.35rem;
   letter-spacing: -0.01em;
 }
-.brand:hover { color: var(--accent); text-decoration: none; }
+.brand, .brand a { color: #fff; }
+.brand a:hover { color: #fff; text-decoration: none; opacity: 0.85; }
 .nav-links { display: flex; gap: 30px; white-space: nowrap; }
 .nav-links a {
   color: rgba(255,255,255,0.85);
@@ -134,14 +136,16 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .hero { background: #fff; }
 .hero-inner {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
-  gap: 34px;
+  gap: 40px;
 }
+.hero-text { flex: 1; }
 .hero-text { text-align: left; }
 .hero .portrait {
-  width: 210px;
-  height: 210px;
-  border-radius: 12px;
+  width: 250px;
+  height: 250px;
+  border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 4px 16px rgba(0,31,77,0.18);
   flex-shrink: 0;
@@ -155,7 +159,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   color: #000;
 }
 .roles-label {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--navy);
   margin: 6px 0 8px;
@@ -164,10 +168,10 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--ink);
 }
-.role-list li { padding: 3px 0; line-height: 1.45; }
+.role-list li { padding: 5px 0; line-height: 1.5; }
 
 /* About header: section title on the left, contact actions on the right */
 .about-header {
