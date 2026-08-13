@@ -86,7 +86,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   background: var(--navy);
 }
 .nav-inner {
-  max-width: var(--maxw);
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
   height: 66px;
@@ -118,7 +118,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* mobile burger (checkbox hack) */
 .nav-toggle { display: none; }
 .nav-burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
-.nav-burger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.2s; }
+.nav-burger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: 0.2s; }
 
 /* ===================================================================
    Hero
@@ -372,7 +372,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   text-align: center;
   font-size: 0.8rem;
 }
-.site-footer a { color: #fff; }
+.site-footer a { color: #fff; text-decoration: none; }
 .footer-inner { max-width: 960px; margin: 0 auto; }
 .site-footer .powered-by { font-size: 0.8rem; color: #cfd4e0; margin: 0; }
 .button_icon i { color: #cfd4e0; }
@@ -386,19 +386,23 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   .nav-burger { display: flex; }
   .nav-links {
     position: absolute;
-    top: 60px; left: 0; right: 0;
+    top: 66px; left: 0; right: 0;
     flex-direction: column;
     justify-content: flex-start;
     gap: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
+    background: var(--navy);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.25s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
   }
   .nav-toggle:checked ~ .nav-links { max-height: 440px; }
-  .nav-links a { padding: 14px 24px; border-bottom: 1px solid var(--line); }
-  .nav-links a:hover { border-bottom-color: var(--line); }
+  .nav-links a {
+    color: #fff;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .nav-links a:last-child { border-bottom: none; }
   .hero-name { font-size: 1.9rem; }
   .hero .portrait { width: 140px; height: 140px; }
   .hero-inner { flex-direction: column; gap: 18px; align-items: flex-start; }
