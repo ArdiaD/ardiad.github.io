@@ -148,19 +148,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   flex-shrink: 0;
   margin: 0;
 }
-.hero-name {
-  font-size: 2.3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 6px;
-  color: #000;
-}
-.roles-label {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--navy);
-  margin: 6px 0 8px;
-}
+
 .role-list {
   list-style: none;
   padding: 0;
@@ -182,36 +170,6 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 .about-header .section-title { margin-bottom: 0; }
 .about-header { margin-bottom: 1.5rem; }
 .about-actions { display: flex; align-items: center; gap: 20px; }
-
-.doc-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
-}
-.btn {
-  display: inline-block;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--navy);
-  border: none;
-  border-radius: 6px;
-  padding: 0.65rem 1.2rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
-}
-.btn:hover {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(30,58,95,0.25);
-  transform: translateY(-2px);
-  text-decoration: none;
-}
 
 .research-fields { margin: 0.35rem 0; }
 .more-link { margin: 1rem 0 0; font-size: 0.95rem; color: var(--muted); }
@@ -281,26 +239,6 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ===================================================================
    Publication search
    =================================================================== */
-.pub-search { margin: 0 0 18px; }
-#pubSearch {
-  width: 100%;
-  max-width: 420px;
-  padding: 10px 14px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: var(--ink);
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  transition: border-color 0.18s, box-shadow 0.18s;
-}
-#pubSearch::placeholder { color: #9aa3b2; }
-#pubSearch:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(28,93,153,0.18);
-}
-.pub-search-empty { color: var(--muted); margin: 12px 0 0; font-style: italic; }
 
 .show-more-btn {
   margin-top: 16px;
@@ -348,7 +286,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
    Contact
    =================================================================== */
 .contact-line { margin: 0 0 6px; font-size: 0.8rem; color: #cfd4e0; }
-.contact-line i { color: #cfd4e0; width: 1.2em; }
+
 .contact-line a { font-weight: 600; }
 
 /* ===================================================================
@@ -362,10 +300,13 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   font-size: 0.8rem;
 }
 .site-footer a { color: #fff; text-decoration: none; }
+.float-right { float: right; }
+.contact-line .ic { width: 15px; height: 15px; fill: currentColor; vertical-align: -2px; margin-right: 3px; }
+.button_icon .ic-up { width: 26px; height: 26px; fill: currentColor; }
 .footer-inner { max-width: 960px; margin: 0 auto; }
 .site-footer .powered-by { font-size: 0.8rem; color: #cfd4e0; margin: 0; }
-.button_icon i { color: #cfd4e0; }
-.button_icon i:hover { color: #fff; }
+.button_icon { color: #cfd4e0; }
+.button_icon:hover { color: #fff; }
 
 /* ===================================================================
    Responsive
@@ -392,7 +333,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
   .nav-links a:last-child { border-bottom: none; }
-  .hero-name { font-size: 1.9rem; }
+  .hero-lede { font-size: 1.3rem; }
   .hero .portrait { width: 140px; height: 140px; }
   .hero-inner { flex-direction: column; gap: 18px; align-items: flex-start; }
   .hero-text { text-align: left; }
