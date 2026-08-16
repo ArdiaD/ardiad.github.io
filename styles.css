@@ -22,7 +22,7 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.45;
   color: var(--ink);
   background: var(--page);
   -webkit-font-smoothing: antialiased;
@@ -156,7 +156,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   font-size: 1.05rem;
   color: var(--ink);
 }
-.role-list li { padding: 5px 0; line-height: 1.5; }
+.role-list li { padding: 4px 0; line-height: 1.4; }
 
 /* About header: section title on the left, contact actions on the right */
 .about-header {
@@ -233,7 +233,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
 /* ===================================================================
    About / body text
    =================================================================== */
-#about p { margin: 0.75rem 0; line-height: 1.8; text-align: justify; }
+#about p { margin: 0.75rem 0; line-height: 1.6; text-align: justify; }
 #about p:last-child { margin-bottom: 0; }
 
 /* ===================================================================
@@ -264,7 +264,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   margin: 0.3rem 0;
 }
 .small-bullet-list li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   font-size: 0.96rem;
 }
 
