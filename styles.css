@@ -112,7 +112,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
   border-bottom: 2px solid transparent;
 }
 .nav-links a:hover { color: #fff; text-decoration: underline; }
-.nav-links a.active { color: #fff; }
+.nav-links a.active { color: #fff; border-bottom-color: rgba(255,255,255,0.6); }
 
 /* mobile burger (checkbox hack) */
 .nav-toggle { display: none; }
@@ -333,6 +333,7 @@ a:hover { color: var(--accent-dark); text-decoration: underline; }
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
   .nav-links a:last-child { border-bottom: none; }
+  .nav-links a.active { border-bottom-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); }
   .hero-lede { font-size: 1.3rem; }
   .hero .portrait { width: 140px; height: 140px; }
   .hero-inner { flex-direction: column; gap: 18px; align-items: flex-start; }
